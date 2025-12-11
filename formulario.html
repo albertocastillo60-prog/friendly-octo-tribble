@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário de Contato</title>
+
+  <style>
+    :root {
+      --primary: #4a90e2;
+      --secondary: #f5a623;
+      --background: #f4f6f9;
+      --surface: #ffffff;
+      --text: #333;
+      --muted: #555;
+    }
+
+    body.dark {
+      --background: #121212;
+      --surface: #1e1e1e;
+      --text: #e0e0e0;
+      --muted: #aaaaaa;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      margin: 20px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--primary);
+    }
+
+    form {
+      background: var(--surface);
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: background 0.3s;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    input:valid, textarea:valid {
+      border-color: #2ecc71;
+      box-shadow: 0 0 5px rgba(46, 204, 113, 0.6);
+    }
+
+    input:invalid, textarea:invalid {
+      border-color: #e74c3c;
+      box-shadow: 0 0 5px rgba(231, 76, 60, 0.6);
+    }
+
+    input[type="submit"] {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+
+    input[type="submit"]:hover {
+      background: var(--secondary);
+    }
+
+    a {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      color: var(--secondary);
+    }
+
+    /* Botão Dark Mode redondo */
+    .toggle-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: background 0.3s, transform 0.3s;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .toggle-btn:hover {
+      background: var(--secondary);
+      transform: rotate(20deg);
+    }
+
+    /* Mensagem de confirmação */
+    .confirmacao {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 8px;
+      background: #2ecc71;
+      color: #fff;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Botão Dark Mode -->
+  <button class="toggle-btn" onclick="toggleTheme()">🌙</button>
+
+  <h1>Formulário de Contato</h1>
+
+  <form id="contatoForm">
+    <label for="nome">Nome:</label>
+    <input id="nome" type="text" placeholder="Digite seu nome" required>
+
+    <label for="email">Email:</label>
+    <input id="email" type="email" placeholder="Digite seu email" required>
+
+    <label for="telefone">Telefone:</label>
+    <input id="telefone" type="tel" placeholder="(xx) xxxxx-xxxx">
+
+    <label for="mensagem">Mensagem:</label>
+    <textarea id="mensagem" rows="6" placeholder="Digite sua mensagem" required></textarea>
+
+    <input type="submit" value="Enviar">
+  </form>
+
+  <!-- Mensagem de confirmação -->
+  <div id="confirmacao" class="confirmacao">
+    ✅ Obrigado, sua mensagem foi enviada com sucesso!
+  </div>
+
+  <hr>
+  <a href="siteprincipal.html">Voltar para principal</a>
+
+  <!-- JS integrado -->
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      body.classList.toggle('dark');
+      const btn = document.querySelector('.toggle-btn');
+      btn.textContent = body.classList.contains('dark') ? '☀️' : '🌙';
+    }
+
+    // Detecta automaticamente o tema do sistema
+    window.addEventListener("DOMContentLoaded", () => {
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        document.body.classList.add("dark");
+        document.querySelector('.toggle-btn').textContent = '☀️';
+      }
+    });
+
+    // Exibe mensagem de confirmação ao enviar
+    document.getElementById("contatoForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // impede recarregar a página
+      document.getElementById("confirmacao").style.display = "block";
+      this.reset(); // limpa os campos
+    });
+  </script>
+   <!-- RODAPÉ -->
+  <footer>
+    <p>© 2025 Alberto | Este documento é protegido por direitos autorais. Reprodução não autorizada é proibida.</p>
+  </footer>
+</body>
+</html>

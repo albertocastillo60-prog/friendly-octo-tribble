@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ALBERTO JEREMIAS CASTILLO SUAREZ</title>
+
+  <style>
+    .foto-topo {
+  width: 150px;          /* tamanho da foto */
+  height: 150px;
+  border-radius: 50%;    /* deixa a foto redonda */
+  object-fit: cover;     /* ajusta bem dentro do círculo */
+  border: 4px solid #fff; /* borda branca elegante */
+  margin-bottom: 20px;   /* espaço abaixo da foto */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* sombra suave */
+}
+    /* Paleta padrão (Light Mode) */
+    :root {
+      --primary: #4a90e2;
+      --secondary: #f5a623;
+      --background: #f9fafc;
+      --surface: #ffffff;
+      --text: #333;
+      --muted: #555;
+    }
+
+    /* Paleta Dark Mode */
+    body.dark {
+      --background: #121212;
+      --surface: #1e1e1e;
+      --text: #e0e0e0;
+      --muted: #aaaaaa;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      padding: 50px 20px;
+      text-align: center;
+      color: #fff;
+      border-radius: 0 0 30px 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    header p {
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.2rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px;
+      background: var(--surface);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      border-radius: 50px;
+      margin: -25px auto 30px;
+      width: fit-content;
+      transition: background 0.3s;
+    }
+
+    nav a {
+      background: var(--primary);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background: var(--secondary);
+      transform: scale(1.05);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    article {
+      background: var(--surface);
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: background 0.3s, transform 0.3s ease;
+    }
+
+    article:hover {
+      transform: translateY(-5px);
+    }
+
+    article h2 {
+      text-align: center;
+      margin-bottom: 15px;
+      color: var(--primary);
+      font-size: 1.5rem;
+    }
+
+    article p {
+      font-size: 1.1rem;
+      text-align: justify;
+    }
+
+    footer {
+      background: var(--surface);
+      color: var(--muted);
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      border-radius: 20px 20px 0 0;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    footer p {
+      font-size: 0.95rem;
+    }
+
+    /* Botão de alternância */
+    .toggle-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .toggle-btn:hover {
+      background: var(--secondary);
+    }
+
+    /* Responsividade */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      nav {
+        flex-direction: column;
+        gap: 10px;
+        border-radius: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Botão de alternância -->
+  <button class="toggle-btn" onclick="toggleTheme()">🌙/☀️</button>
+
+  <!-- TOPO -->
+ <header>
+  <img src="img/WhatsApp Image 2025-11-26 at 13.35.48 (1).jpg" alt="Foto de Alberto" class="foto-topo">
+  <div>
+    <h1>ALBERTO JEREMIAS CASTILLO SUAREZ</h1>
+    <p>Sou um profissional que construiu sua trajetória...</p>
+  </div>
+</header>
+
+  <!-- MENU -->
+  <nav>
+    <a href="curriculo.html">Currículo</a>
+    <a href="formulario.html">Formulário</a>
+    
+    <a href="https://www.youtube.com/@albertojeremias628">YouTube</a>
+  </nav>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main>
+    <article>
+      <h2>Uso de Div</h2>
+      <p>A tag <code>&lt;div&gt;</code> é um contêiner genérico usado para agrupar elementos e aplicar estilos ou scripts a eles. No entanto, o uso excessivo pode levar a um código confuso e difícil de manter. Prefira tags semânticas como <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code> e <code>&lt;footer&gt;</code> para dar mais significado ao conteúdo.</p>
+    </article>
+
+    <article>
+      <h2>Design Moderno</h2>
+      <p>Um design moderno valoriza simplicidade, clareza e responsividade. Com alternância de tema, o visitante pode escolher entre claro e escuro, tornando a experiência mais personalizada e agradável.</p>
+    </article>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <p>© 2025 Alberto | Este documento é protegido por direitos autorais. Reprodução não autorizada é proibida.</p>
+  </footer>
+
+  <!-- Script para alternar tema -->
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
+</body>
+</html>
